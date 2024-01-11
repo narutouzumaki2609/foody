@@ -28,14 +28,18 @@ async function fetchData() {
     // Fetch data from the collection
     const result = await collection.find(query).toArray();
 
+    const collection2=db.collection('food_category');
+    const result2=await collection2.find({}).toArray();
     // Output the fetched data
+    global.food_items=result;
+    global.food_category=result2;
     console.log('Fetched Data:');
-    console.log(result);
+    // console.log(result);
   } finally {
     // Close the MongoDB client
     await client.close();
   }
-}
+} 
 
 module.exports=fetchData;
 // Call the fetchData function

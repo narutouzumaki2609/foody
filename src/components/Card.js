@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function Card() {
+export default function Card(props) {
     return (
         <div>
-            <div className="card mt-3" style={{width: "18rem", maxHeight:"360px"}}>
-                <img src="..." class="card-img-top" alt="..." />
+            <div className="card mt-3" style={{width: "18rem", maxHeight:"380px"}}>
+                <img src={props.imgsrc} className="card-img-top" alt="..." style={{height:"150px", objectFit:"fill"}}/>
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 className="card-title">{props.Foodname}</h5>
+                    <p className="card-text">{props.description}</p>
                     <div className='container w-100'>
                         <select className='m-2 h-100 bg-success'>  
                             {Array.from(Array(6),(e,i)=>{

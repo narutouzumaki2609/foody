@@ -4,8 +4,9 @@ const port = 5000
 const mongoose = require('mongoose')
 const cors = require('cors')
 app.use(cors());
-// app.use(bodyParser.urlencoded({ extended: true }));cls
-
+var bodyParser = require('body-parser')
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // const { MongoClient } = require("mongodb");
 const mongodb = require('./Db')
 const fetchData = require('./Fetchdb')
@@ -30,6 +31,7 @@ fetchData()
 // const mongodb=require('./Db')
 // mongodb();
 app.use('/api', require('./Routes/Createuser'))
+app.use('/api', require('./Routes/DisplayData'))
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
